@@ -54,11 +54,12 @@ Searched for any `ProcessCommandLine` that contained the string "tor-browser-win
 ```kql
 
 DeviceProcessEvents  
-| where DeviceName == "threat-hunt-lab"  
-| where ProcessCommandLine contains "tor-browser-windows-x86_64-portable-14.0.1.exe"  
+| where DeviceName == "edr-julio"  
+| where ProcessCommandLine startswith "tor-browser-windows-x86_64-portable-14.0.5.exe" 
 | project Timestamp, DeviceName, AccountName, ActionType, FileName, FolderPath, SHA256, ProcessCommandLine
 ```
-<img width="1212" alt="image" src="https://github.com/user-attachments/assets/b07ac4b4-9cb3-4834-8fac-9f5f29709d78">
+<img width="1128" alt="Screen Shot 2025-02-05 at 10 15 22 PM" src="https://github.com/user-attachments/assets/d0089444-ac74-48aa-9713-f0ec3d2a76d0" />
+
 
 ---
 
@@ -70,12 +71,13 @@ Searched for any indication that user "employee" actually opened the TOR browser
 
 ```kql
 DeviceProcessEvents  
-| where DeviceName == "threat-hunt-lab"  
+| where DeviceName == "edr-julio"  
 | where FileName has_any ("tor.exe", "firefox.exe", "tor-browser.exe")  
 | project Timestamp, DeviceName, AccountName, ActionType, FileName, FolderPath, SHA256, ProcessCommandLine  
 | order by Timestamp desc
 ```
-<img width="1212" alt="image" src="https://github.com/user-attachments/assets/b13707ae-8c2d-4081-a381-2b521d3a0d8f">
+<img width="1094" alt="Screen Shot 2025-02-05 at 10 19 35 PM" src="https://github.com/user-attachments/assets/718e4680-e67a-460d-8095-495c00d0b305" />
+
 
 ---
 
@@ -87,14 +89,15 @@ Searched for any indication the TOR browser was used to establish a connection u
 
 ```kql
 DeviceNetworkEvents  
-| where DeviceName == "threat-hunt-lab"  
+| where DeviceName == "edr-julio"  
 | where InitiatingProcessAccountName != "system"  
 | where InitiatingProcessFileName in ("tor.exe", "firefox.exe")  
 | where RemotePort in ("9001", "9030", "9040", "9050", "9051", "9150", "80", "443")  
 | project Timestamp, DeviceName, InitiatingProcessAccountName, ActionType, RemoteIP, RemotePort, RemoteUrl, InitiatingProcessFileName, InitiatingProcessFolderPath  
 | order by Timestamp desc
 ```
-<img width="1212" alt="image" src="https://github.com/user-attachments/assets/87a02b5b-7d12-4f53-9255-f5e750d0e3cb">
+<img width="1392" alt="Screen Shot 2025-02-05 at 10 23 11 PM" src="https://github.com/user-attachments/assets/7486fc16-506d-4ded-923d-19169445b25e" />
+
 
 ---
 
