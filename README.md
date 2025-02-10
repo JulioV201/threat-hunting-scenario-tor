@@ -106,7 +106,7 @@ DeviceNetworkEvents
 ### 1. File Download - TOR Installer
 
 - **Timestamp:** `2025-02-05T13:54:58.3086429Z`
-- **Event:** The user "labuser" downloaded a file named `tor-browser-windows-x86_64-portable-14.0.1.exe` to the Downloads folder.
+- **Event:** The user "labuser" downloaded a file named `tor-browser-windows-x86_64-portable-14.0.5.exe` to the Downloads folder.
 - **Action:** File download detected.
 - **File Path:** `C:\Users\labuser\Desktop\tor-browser-windows-x86_64-portable-14.0.5.exe`
 
@@ -121,14 +121,14 @@ DeviceNetworkEvents
 ### 3. Process Execution - TOR Browser Launch
 
 - **Timestamp:** `2025-02-05T14:00:34.4124031Z`
-- **Event:** User "employee" opened the TOR browser. Subsequent processes associated with TOR browser, such as `firefox.exe` and `tor.exe`, were also created, indicating that the browser launched successfully.
+- **Event:** User "labuser" opened the TOR browser. Subsequent processes associated with TOR browser, such as `firefox.exe` and `tor.exe`, were also created, indicating that the browser launched successfully.
 - **Action:** Process creation of TOR browser-related executables detected.
 - **File Path:** `C:\Users\labuser\Desktop\tor-browser-windows-x86_64-portable-14.0.5.exe`
 
 ### 4. Network Connection - TOR Network
 
 - **Timestamp:** `2025-02-05T14:01:00.9109577Z`
-- **Event:** A network connection to IP `176.198.159.33` on port `9001` by user "employee" was established using `tor.exe`, confirming TOR browser network activity.
+- **Event:** A network connection to IP `176.198.159.33` on port `9001` by user "labuser" was established using `tor.exe`, confirming TOR browser network activity.
 - **Action:** Connection success.
 - **Process:** `tor.exe`
 - **File Path:** `C:\Users\labuser\Desktop\tor-browser-windows-x86_64-portable-14.0.5.exe`
